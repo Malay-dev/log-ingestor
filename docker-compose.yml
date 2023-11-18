@@ -1,0 +1,20 @@
+version: '3'
+services:
+  log-ingestor-app:
+    build: .
+    ports:
+      - "5000"
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo-database
+  mongo-database:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-db:/data/db
+volumes:
+  mongo-db:
