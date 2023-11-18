@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const LogSchema = new mongoose.Schema({
+const LogModel = new mongoose.Schema({
   level: {
     type: String,
     required: true,
@@ -37,6 +37,6 @@ const LogSchema = new mongoose.Schema({
   },
 });
 
-const LogModel = mongoose.model("Log", LogSchema);
+const LogSchema = mongoose.model("Log", LogModel);
 
-module.exports = LogModel;
+export default LogSchema;
