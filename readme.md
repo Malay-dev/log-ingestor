@@ -106,7 +106,6 @@ Ensure you have Docker installed on your system.
 
    ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/902b4baf-cb94-4780-bb33-b5b355e98cbb)
 
-
 5. **Interact with the System:**
 
    - **HTTP Requests:**
@@ -120,12 +119,12 @@ Ensure you have Docker installed on your system.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Web UI
+
 ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/8655257a-3592-42e7-9858-b49fb5b464f8)
 ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/f70c6516-cf52-4445-970c-82ef9b983f7c)
 ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/bbbb1e62-61e6-4485-ab70-25b6970c1c32)
 ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/9c1ee322-384b-40d4-9a83-ee8c55a480fb)
-
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -135,7 +134,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Contact
 
-Malay Kumar - [@void_MalayK](https://twitter.com/void_MalayK) - email@email_client.com
+Malay Kumar - [@void_MalayK](https://twitter.com/void_MalayK) - malaykumar2003@gmail.com
+@Malay-dev
 
 Project Link: [https://github.com/Malay-dev/log-ingestor.git](https://github.com/Malay-dev/log-ingestor.git)
 
