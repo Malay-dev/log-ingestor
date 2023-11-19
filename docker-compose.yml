@@ -19,15 +19,7 @@ services:
     image: rabbitmq:latest
     ports:
       - "5672:5672"
-      - "15672:15672"
-    environment:
-      - RABBITMQ_DEFAULT_USER=root
-      - RABBITMQ_DEFAULT_PASS=example
-      - RABBITMQ_DEFAULT_VHOST=wifihost
-    volumes:
-      - ./rabbit/data:/var/lib/rabbitmq
-      - ./rabbit/log:/var/log/rabbitmq
-      - ./rabbit/etc:/etc/rabbitmq
+      - "15672:15672"    
     depends_on:
       - mongodb-sharded
     

@@ -1,14 +1,11 @@
 import amqp from "amqplib";
 import LogSchema from "../Schema/log_schema.js";
 
-const RABBIT_MQ_USER = process.env.RABBIT_MQ_USER;
-const RABBIT_MQ_PASSWORD = process.env.RABBIT_MQ_PASSWORD;
 const RABBTI_MQ_IP = process.env.RABBTI_MQ_IP || "rabbitmq";
-const RABBTI_MQ_VHOST = process.env.RABBTI_MQ_VHOST || "wifihost";
 
-const RABBIT_MQ_URL = `amqp://${RABBIT_MQ_USER}:${RABBIT_MQ_PASSWORD}@${RABBTI_MQ_IP}:5672/${RABBTI_MQ_VHOST}`;
+const RABBIT_MQ_URL = `amqp://@${RABBTI_MQ_IP}:5672`;
 const QUEUE_NAME = "log_queue";
- 
+
 let rabbit_mq_channel;
 let start_time;
 const retry_time_limit = 30000;
