@@ -104,14 +104,15 @@ Ensure you have Docker installed on your system.
 
    Replace `1` with `2` for the second instance.
 
-   ![image](public/terminal.png)
+   ![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/902b4baf-cb94-4780-bb33-b5b355e98cbb)
+
 
 5. **Interact with the System:**
 
    - **HTTP Requests:**
-     - Make HTTP POST requests to the `/log` endpoint to submit logs.
-     - Use HTTP GET requests at the same endpoint with various query parameters to retrieve logs.
-     - Example GET request: `http://localhost:3000/log?level=error`
+     - Make HTTP POST requests to the `http://localhost:3000/logs` endpoint to submit logs.
+     - Example GET request: `http://localhost:3000/logs`
+     - Example Filter request: `http://localhost:3000/logs/filter?filterField=level&filterValue=error`
      - Experiment with different query parameters based on log attributes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -120,6 +121,11 @@ Ensure you have Docker installed on your system.
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/8655257a-3592-42e7-9858-b49fb5b464f8)
+![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/f70c6516-cf52-4445-970c-82ef9b983f7c)
+![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/bbbb1e62-61e6-4485-ab70-25b6970c1c32)
+![image](https://github.com/Malay-dev/log-ingestor/assets/91375797/9c1ee322-384b-40d4-9a83-ee8c55a480fb)
+
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
