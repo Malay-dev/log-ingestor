@@ -8,6 +8,23 @@ services:
       - ./.env
     depends_on:
       - mongodb-sharded
+      - rabbitmq
+  
+  rabbitmq:
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=example
+      - RABBITMQ_DEFAULT_VHOST=wifihost
+    volumes:
+      - ./rabbit/data:/var/lib/rabbitmq
+      - ./rabbit/log:/var/log/rabbitmq
+      - ./rabbit/etc:/etc/rabbitmq
+    depends_on:
+      - mongodb-sharded
     
   mongodb-sharded:
     image: docker.io/bitnami/mongodb-sharded:7.0
@@ -18,6 +35,7 @@ services:
       - MONGODB_CFG_REPLICA_SET_NAME=cfgreplicaset
       - MONGODB_REPLICA_SET_KEY=replicasetkey123
       - MONGODB_ROOT_PASSWORD=example
+    restart: always
 
   mongodb-sharded-2:
     image: docker.io/bitnami/mongodb-sharded:7.0
