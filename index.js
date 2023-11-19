@@ -43,7 +43,7 @@ const url_logger = (upperCase) => {
     next();
   };
 };
-
+app.enable("trust proxy");
 app.use(url_logger(true));
 app.use(express.json());
 app.use(express.static("public"));
