@@ -24,9 +24,11 @@ const connect_to_rabbit_mq = async () => {
   }
 };
 
-const publish_to_queue = (log_entry, channel) => {
+const get_channel = await connect_to_rabbit_mq();
+
+const publish_to_queue = (log_entry) => {
   try {
-    channel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(log_entry)));
+    get_channel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(log_entry)));
     console.log("Log entry added to Queue");
   } catch (error) {
     console.error(`Error publishing to the queue: ${error.message}`);
@@ -35,15 +37,23 @@ const publish_to_queue = (log_entry, channel) => {
 
 const consume_from_queue = (channel) => {
   try {
-    channel.consume(QUEUE_NAME, async (message) => {
-      const log_entry = JSON.parse(message.content.toString());
-      const create_log = await LogSchema.create(log_entry);
-      console.log("Processing log entry");
-      channel.ack(create_log);
-    });
+    channel.consume(
+      QUEUE_NAME,
+      async (message) => {
+        const log_entry = JSON.parse(message.content.toString());
+        const create_log = await LogSchema.create(log_entry);
+        console.log("Processing log entry");
+      },
+      { noAck: true }
+    );
   } catch (error) {
     console.error(`Error consuming from queue: ${error.message}`);
   }
 };
 
-export { connect_to_rabbit_mq, publish_to_queue, consume_from_queue };
+export {
+  connect_to_rabbit_mq,
+  publish_to_queue,
+  consume_from_queue,
+  get_channel,
+};
