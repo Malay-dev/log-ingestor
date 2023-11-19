@@ -32,11 +32,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -138,8 +134,3 @@ Malay Kumar - [@void_MalayK](https://twitter.com/void_MalayK) - email@email_clie
 Project Link: [https://github.com/Malay-dev/log-ingestor.git](https://github.com/Malay-dev/log-ingestor.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-```
