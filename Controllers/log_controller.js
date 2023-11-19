@@ -17,6 +17,31 @@ const get_all_logs = async (req, res, next) => {
   }
 };
 
+const filter_logs = async (req, res, next) => {
+  try {
+    const { filterField, filterValue } = req.query;
+    let filter = {};
+    if (req.body) {
+      filter = req?.body;
+    } else {
+      filter[filterField] = filterValue;
+    }
+    console.log(filter);
+    const logs = await LogSchema.find(filter);
+
+    res.status(200).json({
+      status: "success",
+      result: logs,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "fail",
+      error: error,
+    });
+  }
+};
+
 const create_log = async (req, res, next) => {
   try {
     const log_data = req?.body;
@@ -35,4 +60,4 @@ const create_log = async (req, res, next) => {
   }
 };
 
-export { create_log, get_all_logs };
+export { create_log, get_all_logs, filter_logs };

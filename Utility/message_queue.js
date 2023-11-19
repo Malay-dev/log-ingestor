@@ -8,8 +8,10 @@ const RABBTI_MQ_VHOST = process.env.RABBTI_MQ_VHOST || "wifihost";
 
 const RABBIT_MQ_URL = `amqp://${RABBIT_MQ_USER}:${RABBIT_MQ_PASSWORD}@${RABBTI_MQ_IP}:5672/${RABBTI_MQ_VHOST}`;
 const QUEUE_NAME = "log_queue";
-
+ 
 let rabbit_mq_channel;
+let start_time;
+const retry_time_limit = 30000;
 
 const connect_to_rabbit_mq = async () => {
   try {
@@ -21,7 +23,13 @@ const connect_to_rabbit_mq = async () => {
     consume_from_queue();
     return rabbit_mq_channel;
   } catch (error) {
-    console.error(`Failed to connect to RabbitMQ: ${error.message}`);
+    if (!start_time) {
+      start_time = Date.now();
+    }
+    let elapsedTime = Date.now() - start_time;
+    if (elapsedTime > retry_time_limit) {
+      console.error(`Failed to connect to RabbitMQ: ${error.message}`);
+    }
     setTimeout(connect_to_rabbit_mq, 1000);
   }
 };

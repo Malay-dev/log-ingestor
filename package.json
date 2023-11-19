@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon --ignore ./rabbit -L index.js"
+    "start": "node --no-deprecation index.js",
+    "dev": "nodemon --no-deprecation --ignore ./rabbit -L index.js"
   },
   "keywords": [
     "log",

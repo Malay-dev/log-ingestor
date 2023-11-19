@@ -46,12 +46,11 @@ const url_logger = (upperCase) => {
 
 app.use(url_logger(true));
 app.use(express.json());
+app.use(express.static("public"));
 
 app.use("/logs", log_routes);
 
-app.get("/", (req, res) => {
-  res.send("This is the log-ingestor server");
-});
+app.get("/", (req, res) => {});
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
