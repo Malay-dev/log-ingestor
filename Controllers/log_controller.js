@@ -21,14 +21,12 @@ const filter_logs = async (req, res, next) => {
   try {
     const { filterField, filterValue } = req.query;
     let filter = {};
-    if (req.body) {
+    if (req.body == {}) {
       filter = req?.body;
     } else {
       filter[filterField] = filterValue;
     }
-    console.log(filter);
     const logs = await LogSchema.find(filter);
-
     res.status(200).json({
       status: "success",
       result: logs,

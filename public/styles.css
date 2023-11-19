@@ -1,94 +1,107 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .container {
-    margin: 10px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin: 10px;
+}
+
 form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  #toggleFilterType {
-    margin-bottom: 20px; /* Adjust the margin-top as needed */
-  }
-  .filterSection {
-    margin-bottom: 20px;
-  }
-  
-  .filterRow {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .filterValue,
-  .filterField {
-    margin-right: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 150px;
-  }
-  
-  #multipleFilter {
-    display: none;
-  }
-  
-  button[type="submit"],
-  #toggleFilterType {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover,
-  #toggleFilterType:hover {
-    background-color: #45a049;
-  }
-  
-  label {
-    display: inline-block;
-    width: 150px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.filterSection {
+  margin-bottom: 20px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filterValue,
+.filterField {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+#multipleFilter {
+  display: none;
+}
+
+button[type="submit"],
+#toggleFilterType {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"]:hover,
+#toggleFilterType:hover {
+  background-color: #45a049;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+}
+
 table {
-    width: 100%;
-    height: 100vh;
-    border-collapse: collapse;
+  width: 100%;
+  height: 100vh;
+  border-collapse: collapse;
 }
-th, td {
-    border: 1px solid #ddd;
-    padding: 6px;
-    text-align: left;
-    height: 40px; /* Adjust the height as needed */
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: left;
+  height: 40px;
 }
+
 th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
+
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
+
 .pagination button {
-    margin: 0 3px;
-    padding: 4px 8px;
-    cursor: pointer;
+  margin: 0 3px;
+  padding: 4px 8px;
+  cursor: pointer;
 }
