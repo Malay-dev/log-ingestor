@@ -4,5 +4,4 @@ Dockerfile
 .git
 .gitignore
 .env
-rabbit
 docker-compose*

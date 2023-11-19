@@ -9,35 +9,38 @@ const RABBTI_MQ_VHOST = process.env.RABBTI_MQ_VHOST || "wifihost";
 const RABBIT_MQ_URL = `amqp://${RABBIT_MQ_USER}:${RABBIT_MQ_PASSWORD}@${RABBTI_MQ_IP}:5672/${RABBTI_MQ_VHOST}`;
 const QUEUE_NAME = "log_queue";
 
+let rabbit_mq_channel;
+
 const connect_to_rabbit_mq = async () => {
   try {
     const rabbit_mq_conn = await amqp.connect(RABBIT_MQ_URL);
-    const rabbit_mq_channel = await rabbit_mq_conn.createChannel();
+    rabbit_mq_channel = await rabbit_mq_conn.createChannel();
     await rabbit_mq_channel.assertQueue(QUEUE_NAME, { durable: false });
     console.log("[server]: Connected to rabbitMQ...");
     console.log("[server]: Waiting for log entries...");
+    consume_from_queue();
     return rabbit_mq_channel;
   } catch (error) {
     console.error(`Failed to connect to RabbitMQ: ${error.message}`);
-    setTimeout(connect_to_rabbit_mq, 5000);
-    return null;
+    setTimeout(connect_to_rabbit_mq, 1000);
   }
 };
 
-const get_channel = await connect_to_rabbit_mq();
-
 const publish_to_queue = (log_entry) => {
   try {
-    get_channel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(log_entry)));
+    rabbit_mq_channel.sendToQueue(
+      QUEUE_NAME,
+      Buffer.from(JSON.stringify(log_entry))
+    );
     console.log("Log entry added to Queue");
   } catch (error) {
     console.error(`Error publishing to the queue: ${error.message}`);
   }
 };
 
-const consume_from_queue = (channel) => {
+const consume_from_queue = () => {
   try {
-    channel.consume(
+    rabbit_mq_channel.consume(
       QUEUE_NAME,
       async (message) => {
         const log_entry = JSON.parse(message.content.toString());
@@ -51,9 +54,4 @@ const consume_from_queue = (channel) => {
   }
 };
 
-export {
-  connect_to_rabbit_mq,
-  publish_to_queue,
-  consume_from_queue,
-  get_channel,
-};
+export { connect_to_rabbit_mq, publish_to_queue, consume_from_queue };

@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 import log_routes from "./Routes/log_routes.js";
 
-import { get_channel, consume_from_queue } from "./Utility/message_queue.js";
+import { connect_to_rabbit_mq } from "./Utility/message_queue.js";
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ const connect_to_database = () => {
 };
 
 connect_to_database();
-consume_from_queue(get_channel);
+connect_to_rabbit_mq();
 
 const url_logger = (upperCase) => {
   if (typeof upperCase !== "boolean") {
