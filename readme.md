@@ -81,7 +81,7 @@ Ensure you have Docker installed on your system.
 
    ```
    PORT=3000
-   MONGO_USER="root"
+   MONGO_USER="root
    MONGO_PASSWORD="example"
    RABBIT_MQ_USER="root"
    RABBIT_MQ_PASSWORD="example"
